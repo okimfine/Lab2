@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.devMode"  value="false"/>
+    <include file = "struts-default.xml"/>
+    <package name = "bookquery" extends = "struts-default">
+		 <action name = "Login">
+		        <result>/index.jsp</result>
+		 </action>
+        <action name="Search" class = "bookquery.BKaction" method = "execute">
+            <result name = "SUCCESS">/result.jsp</result>
+            <result name = "FAIL">/fail.jsp</result>
+        </action>
+        <action name = "Detail" class = "bookquery.BKaction" method = "detail">
+            <result name = "SUCCESS">/information.jsp</result>
+            <result name = "FAIL">/fail.jsp</result>        
+        </action>
+        <action name = "Gotoedit" class = "bookquery.BKaction" method = "gotoedit">
+            <result name = "SUCCESS">/editbook.jsp</result>       
+        </action>
+        <action name = "Edit" class = "bookquery.BKaction" method = "edit">
+            <result name = "SUCCESS">/success.jsp</result>
+            <result name = "ADD">/addauthor.jsp</result>
+            <result name = "FAIL">/fail.jsp</result>        
+        </action>
+        <action name = "Delete" class = "bookquery.BKaction" method = "delete">
+            <result name = "SUCCESS">/success.jsp</result>
+            <result name = "FAIL">/fail.jsp</result>        
+        </action>                
+        <action name="Addauthor" class="bookquery.BKaction" method="addauthor">
+            <result name="SUCCESS0">/editbook.jsp</result>
+            <result name="SUCCESS1">/addbook.jsp</result>
+            <result name="FAIL">/fail.jsp</result>
+        </action> 
+        <action name="Gotoadd">
+            <result>/addbook.jsp</result>
+        </action>
+        <action name="Addbook" class="bookquery.BKaction" method="addbook">
+            <result name="SUCCESS">/success.jsp</result>
+            <result name="ADD">/addauthor.jsp</result>
+            <result name="FAIL">/fail.jsp</result>
+        </action>               
+     </package>    
+</struts>    
